@@ -10,7 +10,9 @@ using Stripe;
 
 
 var builder = WebApplication.CreateBuilder(args);
-var postgresCS = builder.Configuration["ConnectionString:DefaultConnection"];
+var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();var postgresCS = builder.Configuration["ConnectionString:DefaultConnection"];
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSyncfusionBlazor();
@@ -38,7 +40,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 

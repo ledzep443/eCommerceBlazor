@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\eCommerceBlazor_Common\eCommerceBlazor_Common.csproj" />
     <ProjectReference Include="..\eCommerceBlazor_DataAccess\eCommerceBlazor_DataAccess.csproj" />
     <ProjectReference Include="..\eCommerceBlazor_Models\eCommerceBlazor_Models.csproj" />
   </ItemGroup>

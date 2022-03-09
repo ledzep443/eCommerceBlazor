@@ -11,4 +11,9 @@
     <PackageReference Include="Stripe.net" Version="39.95.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\eCommerceBlazor_DataAccess\eCommerceBlazor_DataAccess.csproj" />
+    <ProjectReference Include="..\eCommerceBlazor_Models\eCommerceBlazor_Models.csproj" />
+  </ItemGroup>
+
 </Project>

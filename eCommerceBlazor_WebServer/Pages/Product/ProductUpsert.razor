@@ -158,9 +158,9 @@
             }
             IsLoading = false;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            await _jsRuntime.ToastrError(e.Message);
+            await _jsRuntime.ToastrError(ex.Message);
         }
     }
 }

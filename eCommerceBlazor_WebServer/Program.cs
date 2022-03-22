@@ -12,6 +12,8 @@ using eCommerceBlazor_Business.Repository;
 using eCommerceBlazor_WebServer.Service.IService;
 using eCommerceBlazor_WebServer.Service;
 
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTk4NTc5QDMxMzkyZTM0MmUzMFE1a0pHVURWWnZFK2Y0QlVXZzNqajEzekJHWWxOb2pYUFZJNXJheXJlcG89");
+
 var builder = WebApplication.CreateBuilder(args);
 
 var postgresCS = builder.Configuration["ConnectionString:DefaultConnection"];
@@ -44,7 +46,12 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+else
+{
+    SeedDatabase();
 
+    app.UseDeveloperExceptionPage();
+}
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
@@ -64,7 +71,12 @@ void SeedDatabase()
 {
     using (var scope = app.Services.CreateScope())
     {
-        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
-        dbInitializer.Initialize();
+        /*var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitializer.Initialize();*/
+        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+        SeedAdminUserAndRoles.Seed(roleManager, userManager).Wait();
     }
+
 }

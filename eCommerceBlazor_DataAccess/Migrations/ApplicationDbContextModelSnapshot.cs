@@ -39,7 +39,7 @@ namespace eCommerceBlazor_DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("eCommerceBlazor_DataAccess.OrderDetail", b =>
@@ -72,7 +72,7 @@ namespace eCommerceBlazor_DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("eCommerceBlazor_DataAccess.OrderHeader", b =>
@@ -142,7 +142,7 @@ namespace eCommerceBlazor_DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OrderHeaders");
+                    b.ToTable("OrderHeaders", (string)null);
                 });
 
             modelBuilder.Entity("eCommerceBlazor_DataAccess.Product", b =>
@@ -182,7 +182,7 @@ namespace eCommerceBlazor_DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("eCommerceBlazor_DataAccess.ProductPrice", b =>
@@ -207,7 +207,7 @@ namespace eCommerceBlazor_DataAccess.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductPrices");
+                    b.ToTable("ProductPrices", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -42,14 +42,16 @@ namespace eCommerceBlazor_WebServer.Service
                     Email = "jimmy@purnellsoftwaredevelopment.com",
                     EmailConfirmed = true
                 };
-
-                _userManager.CreateAsync(user, "Admin123").GetAwaiter().GetResult();
+                //var exitingUser = _userManager.FindByEmailAsync("jimmypurnell27@gmail.com");
+                _userManager.CreateAsync(user, "Admin123!*").GetAwaiter().GetResult();
 
                 _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
+                _context.SaveChanges();
+                //_userManager.AddToRoleAsync(exitingUser, SD.Role_Admin).GetAwaiter().GetResult();
             }
             catch (Exception ex)
             {
-
+                 
             }
         }
     }

@@ -26,7 +26,7 @@ namespace eCommerceBlazor_Business.Repository
         public async Task<CategoryDTO> Create(CategoryDTO categoryDTO)
         {
             var category = _mapper.Map<CategoryDTO, Category>(categoryDTO);
-            category.CreatedDate = DateTime.Now;
+            category.CreatedDate = DateTime.UtcNow;
             var addedCategory = _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 

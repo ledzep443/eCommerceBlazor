@@ -16,7 +16,7 @@ Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTk4NTc5QDMxMzky
 
 var builder = WebApplication.CreateBuilder(args);
 
-var postgresCS = builder.Configuration["ConnectionString:DefaultConnection"];
+var postgresCS = builder.Configuration["ConnectionStrings:DefaultConnection"];
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSyncfusionBlazor();

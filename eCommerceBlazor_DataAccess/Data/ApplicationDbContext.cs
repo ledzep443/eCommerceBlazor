@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,17 @@ namespace eCommerceBlazor_DataAccess.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        private readonly IConfiguration _config;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration configuration) : base(options)
         {
-            
+            _config = configuration;   
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(@"postgres://fkzewqttaylsid:754a92b00386246501c3e7c1d36f8fe813f574fb6bfad39a5436150ee54065cd@ec2-52-73-149-159.compute-1.amazonaws.com:5432/d2ag9ikbiu4d3r");
+                optionsBuilder.UseNpgsql(_config.GetConnectionString("DefaultConnection"));
             }
         }
 

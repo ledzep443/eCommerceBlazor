@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.1.32203.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceBlazor_API", "eCommerceBlazor_API\eCommerceBlazor_API.csproj", "{0DB86C58-9700-4205-87D2-2FCFC1950C45}"
+	ProjectSection(ProjectDependencies) = postProject
+		{51680C8E-F87C-466E-9C3A-91BD0B1BCF44} = {51680C8E-F87C-466E-9C3A-91BD0B1BCF44}
+		{7A62A9B3-4462-442B-BC15-1B604FD1F6D3} = {7A62A9B3-4462-442B-BC15-1B604FD1F6D3}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceBlazor_Models", "eCommerceBlazor_Models\eCommerceBlazor_Models.csproj", "{B0C05130-C1C0-4284-B90D-F2C44B88DC7B}"
 EndProject

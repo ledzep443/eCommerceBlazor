@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceBlazor_WebServer", "eCommerceBlazor_WebServer\eCommerceBlazor_WebServer.csproj", "{4C59343C-AB95-4B36-89E8-C0AEC1180AF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCommerceBlazor_Client", "eCommerceBlazor_Client\eCommerceBlazor_Client.csproj", "{B35DF2DD-E0CE-407C-811B-889DCB40F2CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceBlazor_Client", "eCommerceBlazor_Client\eCommerceBlazor_Client.csproj", "{B35DF2DD-E0CE-407C-811B-889DCB40F2CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

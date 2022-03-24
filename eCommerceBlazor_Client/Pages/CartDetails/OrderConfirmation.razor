@@ -1,0 +1,57 @@
+﻿@page "/orderconfirmation"
+
+<div class="container">
+    @if (IsProcessing)
+    {
+        <eCommerceBlazor_Client.Components.Shared.LoadingDot />
+    }
+    else
+    {
+        @if (Order.OrderHeader.Status == SD.Status_Confirmed)
+        {
+            <div class="row mt-4 pt-4">
+                <div class="col-10 offset-1 text-center">
+                    <h2 class="text-warning">Order Confirmed</h2>
+                    <p>Your order had been placed successfully with order id : @Order.OrderHeader.Id</p>
+                </div>
+                <div class="col-8 offset-2">
+                    <img src="" width="100%" style="border-radius: 30px" />
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row mt-4 pt-4">
+                <div class="col-10 offset-1 text-center">
+                    <h2 class="text-danger">Order Issue!</h2>
+                    <p>Your order had an issue confirming your payment, please contact us with Order ID: @Order.OrderHeader.Id</p>
+                </div>
+                <div class="col-8 offset-2">
+                    <img src="" width="100%" style="border-radius: 30px;" />
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@inject ILocalStorageService _localStorage
+@inject IOrderService _orderService
+@code {
+    private bool IsProcessing { get; set; } = false;
+    private OrderDTO Order { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        IsProcessing = true;
+        Order = await _localStorage.GetItemAsync<OrderDTO>(SD.Local_OrderDetails);
+
+        var updatedOrder = await _orderService.MarkPaymentSuccessful(Order.OrderHeader);
+        if (updatedOrder.Status == SD.Status_Confirmed)
+        {
+            Order.OrderHeader.Status = updatedOrder.Status;
+            await _localStorage.RemoveItemAsync(SD.ShoppingCart);
+            await _localStorage.RemoveItemAsync(SD.Local_OrderDetails);
+        }
+        IsProcessing = false;
+    }
+}

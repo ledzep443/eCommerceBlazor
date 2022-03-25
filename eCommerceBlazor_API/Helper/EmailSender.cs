@@ -18,7 +18,7 @@ namespace eCommerceBlazor_API.Helper
             try
             {
                 var client = new SendGridClient(SendGridSecret);
-                var from = new EmailAddress("jimmy@purnellsoftwaredevelopment.com", "eCommerceBlazor");
+                var from = new EmailAddress("jimmy@purnellsoftwaredevelopment.com", "eCommerce");
                 var to = new EmailAddress(email);
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, "", htmlMessage);
                 await client.SendEmailAsync(msg);

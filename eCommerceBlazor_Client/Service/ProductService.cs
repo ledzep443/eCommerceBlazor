@@ -9,7 +9,7 @@ namespace eCommerceBlazor_Client.Service
         private readonly HttpClient _httpClient;
         private IConfiguration _configuration;
         private string BaseServerUrl;
-        public ProductService(HttpClient httpClient, IConfiguration configuration, string baseServerUrl)
+        public ProductService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
             _configuration = configuration;

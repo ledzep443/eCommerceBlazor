@@ -49,8 +49,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddDefaultTokenProviders()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-var apiSettingsSection = builder.Configuration.GetSection("APISettings");
-builder.Services.Configure<APISettings>(apiSettingsSection);
+//var apiSettingsSection = builder.Configuration.GetSection("APISettings");
+//builder.Services.Configure<APISettings>(apiSettingsSection);
 
 var apiKey = builder.Configuration["APISettings:SecretKey"];
 var key = Encoding.ASCII.GetBytes(apiKey);

@@ -19,7 +19,7 @@ namespace eCommerceBlazor_Models
         public string Color { get; set; }
         public string ImageUrl { get; set; }
 
-        [Range(1, int.MaxValue, ErrorMessage = "Please select a category")]
+        //[Range(1, int.MaxValue, ErrorMessage = "Please select a category")]
         public int CategoryId { get; set; }
 
         public CategoryDTO Category { get; set; }

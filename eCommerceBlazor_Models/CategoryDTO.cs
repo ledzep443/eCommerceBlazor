@@ -9,6 +9,7 @@ namespace eCommerceBlazor_Models
 {
     public class CategoryDTO
     {
+        [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "Please enter a name..")]
         public string Name { get; set; }

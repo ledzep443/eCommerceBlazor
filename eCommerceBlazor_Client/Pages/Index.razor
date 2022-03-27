@@ -18,7 +18,7 @@ else
                             <div class="card-body pb-1 row">
                                 <div class="col-8 h5">@product.Name</div>
                                 <div class="col-4 text-end"><span class="text-info h4">
-                                    @product.ProductPrices.OrderBy(product => product.Price).FirstOrDefault()?.Price.ToString("c");
+                                    @product.ProductPrices.OrderBy(product => product.Price).FirstOrDefault()?.Price.ToString("c")
                                 </span></div>
                             </div>
 
@@ -28,7 +28,7 @@ else
                                     <span class="badge p-2 border w-100 text-dark bg-warning">@product.Category.Name</span>
                                 </div>
                                 <div class="col-6 border-0">
-                                    <span class="badge p-2 border w-100 bg-info">@product.Color</span>
+                                    <span class="badge p-2 border w-100" style="background-color: @product.Color.ToLower()">@product.Color</span>
                                 </div>
                                 <div class="col-12 pt-2" style="font-size:13px; text-align: justify">
                                     <p>@((MarkupString)product.Description)</p>

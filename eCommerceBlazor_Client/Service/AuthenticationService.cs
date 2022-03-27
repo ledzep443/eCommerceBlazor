@@ -58,7 +58,7 @@ namespace eCommerceBlazor_Client.Service
         {
             var content = JsonConvert.SerializeObject(signUpRequest);
             var bodyContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = await _client.PostAsync("api/account/signup", bodyContent);
+            var response = await _client.PostAsync("api/Account/SignUp", bodyContent);
             var contentTemp = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<SignUpResponseDTO>(contentTemp);
 

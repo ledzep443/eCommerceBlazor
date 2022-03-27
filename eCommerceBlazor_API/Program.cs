@@ -52,8 +52,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddDefaultTokenPro
 var apiSettingsSection = builder.Configuration.GetSection("APISettings");
 builder.Services.Configure<APISettings>(apiSettingsSection);
 
-var apiSettings = apiSettingsSection.Get<APISettings>();
-var key = Encoding.ASCII.GetBytes(apiSettings.SecretKey);
+var apiKey = builder.Configuration["APISettings:SecretKey"];
+var key = Encoding.ASCII.GetBytes(apiKey);
 
 builder.Services.AddAuthentication(opt =>
 {
@@ -70,8 +70,8 @@ builder.Services.AddAuthentication(opt =>
         IssuerSigningKey = new SymmetricSecurityKey(key),
         ValidateAudience = true,
         ValidateIssuer = true,
-        ValidAudience = apiSettings.ValidAudience,
-        ValidIssuer = apiSettings.ValidIssuer,
+        ValidAudience = "https://ecommerceblazorapi.azurewebsites.net",
+        ValidIssuer = "https://ecommerceblazorapi.azurewebsites.net",
         ClockSkew = TimeSpan.Zero
     };
 });

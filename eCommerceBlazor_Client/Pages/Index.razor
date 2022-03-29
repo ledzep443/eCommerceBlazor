@@ -8,13 +8,13 @@
 else
 {
     <div class="container">
-        <div class="row pb-3 pt-3 backgroundWhite">
+        <div class="row pb-3 pt-3">
             @foreach(var category in Products.Select(p => p.Category.Name).Distinct()) {
-                <h2 class="text-success pl-1"><b>@category</b></h2>
+                <h2 class="text-white pl-1 text-center"><b>@category</b></h2>
                 @foreach(var product in Products.Where(product => product.Category.Name == category))
                 {
                     <div class="col-lg-4 col-md-6 pb-4 filter">
-                        <div class="card bg-white rounded shadow-sm" style="border:1px solid #222">
+                        <div class="card rounded shadow-sm" style="border:1px solid #222">
                             <div class="card-body pb-1 row">
                                 <div class="col-8 h5">@product.Name</div>
                                 <div class="col-4 text-end"><span class="text-info h4">

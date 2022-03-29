@@ -11,11 +11,11 @@ else
         <div class="card container mt-4">
             <div class="card-header m-lg-0 row">
                 <div class="col-12 col-md-6">
-                    <h1 class="text-primary">@Product.Name</h1>
+                    <h1 class="text-dark">@Product.Name</h1>
                 </div>
                 <div class="col-12 col-md-6 text-end pt-4">
                     <span class="badge bg-info pt-2" style="height: 30px;">@Product.Category.Name</span>
-                    <span class="badge bg-warning pt-2" style="height: 30px;">@Product.Color</span>
+                    <span class="badge pt-2" style="height: 30px; background-color: @Product.Color.ToLower()">@Product.Color</span>
                 </div>
             </div>
             <div class="card-body">
@@ -45,12 +45,12 @@ else
                                 }
                                 @if (!Product.ProductPrices.Any())
                                 {
-                                    <p class="text-warning">No size available yet...</p>
+                                    <p class="text-info">No size available yet...</p>
                                 }
                                 else
                                 {
                                     <div class="row pl-2">
-                                        <div class="col-2 text-primary"><h4>Count</h4></div>
+                                        <div class="col-2 text-dark"><h4>Count</h4></div>
                                         <div class="col-10">
                                             <InputNumber @bind-Value="DetailsVM.Count" class="form-control" />
                                             <ValidationMessage For="() => DetailsVM.Count"></ValidationMessage>

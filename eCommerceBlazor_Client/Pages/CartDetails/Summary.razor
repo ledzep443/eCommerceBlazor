@@ -8,7 +8,7 @@
 else
 {
     <div class="mt-4 mx-4 px-md-5 mx-md-5 p-1">
-        <div class="col-12 col-lg-7 p-4">
+        <div class="col-12 col-lg-7 p-4 card">
             <div class="row px-2 text-success">
                 <div class="col-8 py-1"><p style="font-size: x-large; margin: 0px;">Order Summary</p></div>
                 <div class="col-4 p-0" style="text-align: right;">
@@ -17,7 +17,7 @@ else
             </div>
         @foreach(var prod in Order.OrderDetails)
         {
-            <div class="row border p-1 m-1">
+            <div class="row border border-dark p-1 m-1">
                 <div class="col-3 col-md-2">
                     <img src="@prod.Product.ImageUrl" width="100%">
                 </div>
@@ -27,7 +27,7 @@ else
                     <span class="pt-1">Count : @prod.Count</span><br/>
                 </div>
                 <div class="col-4 col-md-5" style="text-align: right;">
-                    <h4 class="text-warning font-weight-bold pt-2">
+                    <h4 class="text-secondary font-weight-bold pt-2">
                         USD
                         <span style="border-bottom: 1px solid #ff6a00">
                             @((prod.Count * prod.Price).ToString("c"))
@@ -42,44 +42,44 @@ else
             </div>
         </div>
     </div>
-    <div class="col-12 col-lg-5 p-4 m-lg-4 ml-md-0 mt-4 mt-md-0 border">
+    <div class="col-12 col-lg-5 p-4 m-lg-4 ml-md-0 mt-4 mt-md-0 border card">
         <EditForm Model="Order.OrderHeader" OnValidSubmit="HandleCheckout">
             <DataAnnotationsValidator />
             <div class="row px-2 text-success border-bottom">
                 <div class="col-7 py-1"><p style="font-size: x-large; margin: 0px;">Enter Details</p></div>
             </div>
             <div class="form-group pt-2">
-                <label class="text-warning">Name</label>
+                <label class="text-dark">Name</label>
                 <InputText @bind-Value="Order.OrderHeader.Name" type="text" class="form-control" />
                 <ValidationMessage For="() => Order.OrderHeader.Name"></ValidationMessage>
             </div>
             <div class="form-group pt-2">
-                <label class="text-warning">Phone</label>
+                <label class="text-dark">Phone</label>
                 <InputText @bind-Value="Order.OrderHeader.PhoneNumber" type="text" class="form-control" />
                 <ValidationMessage For="() => Order.OrderHeader.PhoneNumber"></ValidationMessage>
             </div>
             <div class="form-group pt-2">
-                <label class="text-warning">Email</label>
+                <label class="text-dark">Email</label>
                 <InputText @bind-Value="Order.OrderHeader.Email" type="text" class="form-control" />
                 <ValidationMessage For="() => Order.OrderHeader.Email"></ValidationMessage>
             </div>
             <div class="form-group pt-2">
-                <label class="text-warning">Street Address</label>
+                <label class="text-dark">Street Address</label>
                 <InputText @bind-Value="Order.OrderHeader.StreetAddress" type="text" class="form-control" />
                 <ValidationMessage For="() => Order.OrderHeader.StreetAddress"></ValidationMessage>
             </div>
             <div class="form-group pt-2">
-                <label class="text-warning">City</label>
+                <label class="text-dark">City</label>
                 <InputText @bind-Value="Order.OrderHeader.City" type="text" class="form-control" />
                 <ValidationMessage For="() => Order.OrderHeader.City"></ValidationMessage>
             </div>
             <div class="form-group pt-2">
-                <label class="text-warning">State</label>
+                <label class="text-dark">State</label>
                 <InputText @bind-Value="Order.OrderHeader.State" type="text" class="form-control" />
                 <ValidationMessage For="() => Order.OrderHeader.State"></ValidationMessage>
             </div>
             <div class="form-group pt-2">
-                <label class="text-warning">Postal Code</label>
+                <label class="text-dark">Postal Code</label>
                 <InputText @bind-Value="Order.OrderHeader.PostalCode" type="text" class="form-control" />
                 <ValidationMessage For="() => Order.OrderHeader.PostalCode"></ValidationMessage>
             </div>

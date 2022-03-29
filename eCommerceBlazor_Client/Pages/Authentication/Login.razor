@@ -23,7 +23,7 @@
                             <InputText @bind-Value="SignInRequest.Password" type="password" placeholder="Password..." id="password" class="form-control mb-2" />
                             <ValidationMessage For="(() => SignInRequest.Password)"></ValidationMessage>
                         </div>
-                        <div class="py-2">
+                        <div class="py-2 text-center">
                             <button type="submit" class="btn btn-success btn-block"><i class="bi bi-person-bounding-box"></i> Sign In</button>
                             <a href="/register" class="btn btn-primary text-white m-2"><i class="bi bi-person-plus-fill"></i>Register as a new user</a>
                         </div>

@@ -6,9 +6,9 @@
 }
 else
 {
-    @if (!ShoppingCart.Any())
+    @if (ShoppingCart == null)
     {
-        <div>
+        <div class="card text-center">
             Please add items to the shopping cart.
         </div>
     }
@@ -95,7 +95,7 @@ else
 @code {
     public bool IsProcessing { get; set; } = false;
     private List<ShoppingCart> ShoppingCart { get; set; } = new List<ShoppingCart>();
-    private IEnumerable<ProductDTO> Products { get; set; }
+    private IEnumerable<ProductDTO> Products { get; set; } 
     private double OrderTotal { get; set; } = 0;
 
     protected override async Task OnInitializedAsync()
@@ -110,11 +110,14 @@ else
     {
         OrderTotal = 0;
         ShoppingCart = await _localStorage.GetItemAsync<List<ShoppingCart>>(SD.ShoppingCart);
-        foreach(var item in ShoppingCart)
+        if (ShoppingCart != null)
         {
-            item.Product = Products.FirstOrDefault(product => product.Id == item.ProductId);
-            item.ProductPrice = item.Product.ProductPrices.FirstOrDefault(price => price.Id == item.ProductPriceId);
-            OrderTotal += (item.ProductPrice.Price * item.Count);
+            foreach (var item in ShoppingCart)
+            {
+                item.Product = Products.FirstOrDefault(product => product.Id == item.ProductId);
+                item.ProductPrice = item.Product.ProductPrices.FirstOrDefault(price => price.Id == item.ProductPriceId);
+                OrderTotal += (item.ProductPrice.Price * item.Count);
+            }
         }
     }
 
